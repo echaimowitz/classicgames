@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <title>Classic Arcade</title>
+  <meta name="description" content="Retro arcade games in the spirit of the classic home consoles. Play on iPhone or PC.">
+  <meta name="theme-color" content="#07070d">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Arcade">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main id="app">
+    <!-- ===== Menu ===== -->
+    <section id="menu" class="screen">
+      <header class="menu-header">
+        <h1 id="logo" aria-label="Classic Arcade"></h1>
+        <p class="tagline">INSERT COIN &middot; PICK A CARTRIDGE</p>
+      </header>
+      <div id="cart-grid" class="grid"></div>
+      <footer class="menu-footer">
+        <button class="pill sound-btn" type="button">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path class="spk" d="M3 9h4l5-4v14l-5-4H3z"/><path class="wave" d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12"/><path class="cross" d="M16 9l6 6M22 9l-6 6"/></svg>
+          <span class="sound-text">SOUND ON</span>
+        </button>
+        <p id="install-hint" class="hint" hidden>
+          Play full-screen: tap <b>Share</b> <svg class="share" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7 8l5-5 5 5M5 12v8h14v-8"/></svg> then <b>Add to Home Screen</b>.
+        </p>
+        <p class="hint small">Keyboard: arrows / WASD &middot; Space &middot; P to pause</p>
+      </footer>
+    </section>
+
+    <!-- ===== Game ===== -->
+    <section id="play" class="screen" hidden>
+      <div class="toolbar">
+        <button id="back-btn" class="tool" type="button" aria-label="Back to menu">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+        </button>
+        <div id="play-title" class="play-title"></div>
+        <button class="tool sound-btn" type="button" aria-label="Sound on">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path class="spk" d="M3 9h4l5-4v14l-5-4H3z"/><path class="wave" d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12"/><path class="cross" d="M16 9l6 6M22 9l-6 6"/></svg>
+        </button>
+        <button id="pause-btn" class="tool" type="button" aria-label="Pause">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path class="bars" d="M8 5v14M16 5v14"/><path class="play" d="M7 5l12 7-12 7z"/></svg>
+        </button>
+      </div>
+      <div id="stage">
+        <div id="screen-wrap"><canvas id="screen"></canvas></div>
+      </div>
+    </section>
+  </main>
+
+  <noscript><p style="color:#fff;padding:20px">This arcade needs JavaScript turned on.</p></noscript>
+
+  <!-- Engine -->
+  <script src="js/font.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/input.js"></script>
+  <script src="js/arcade.js"></script>
+  <!-- Games: add a new <script> line here for each new game -->
+  <script src="js/games/paddle-duel.js"></script>
+  <script src="js/games/brickfall.js"></script>
+  <script src="js/games/star-sentinel.js"></script>
+  <script src="js/games/neon-serpent.js"></script>
+  <script>CG.boot();</script>
+</body>
+</html>
