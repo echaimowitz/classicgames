@@ -179,7 +179,7 @@
         }
       }
 
-      return { reset, update, draw };
+      return { reset, update, draw, peek: () => ({ snake, food, gold, score, dir }) };
     },
   });
 })();
