@@ -1,6 +1,6 @@
 /* Offline support: once loaded, the arcade works with no connection.
    Bump VERSION whenever you change files so phones pick up the update. */
-const VERSION = 'cg-v1';
+const VERSION = 'cg-v2';
 const FILES = [
   './',
   'index.html',
@@ -15,6 +15,9 @@ const FILES = [
   'js/games/brickfall.js',
   'js/games/star-sentinel.js',
   'js/games/neon-serpent.js',
+  'js/games/crystal-drift.js',
+  'js/games/maze-bandit.js',
+  'js/games/turbo-lanes.js',
   'icons/icon-192.png',
   'icons/icon-512.png',
   'icons/apple-touch-icon.png',

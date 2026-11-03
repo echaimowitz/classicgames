@@ -8,6 +8,7 @@
     x: 180, y: 320,
     down: false, justDown: false, justUp: false, moved: false,
     id: null,
+    type: 'mouse',
   };
   let swipe = null;            // 'up' | 'down' | 'left' | 'right' | null
   let anchor = null;           // swipe anchor in virtual coords
@@ -39,6 +40,7 @@
       pointer.id = e.pointerId;
       try { c.setPointerCapture(e.pointerId); } catch (err) { /* ignore */ }
       toVirtual(e);
+      pointer.type = e.pointerType || 'mouse';
       pointer.down = true;
       pointer.justDown = true;
       pointer.moved = true;
@@ -49,6 +51,7 @@
       // Mouse hover also steers (nice for paddle games on PC); touch only while down.
       if (!pointer.down && e.pointerType !== 'mouse') return;
       toVirtual(e);
+      pointer.type = e.pointerType || 'mouse';
       pointer.moved = true;
       if (pointer.down && anchor) {
         const dx = pointer.x - anchor.x, dy = pointer.y - anchor.y;

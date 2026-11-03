@@ -31,8 +31,10 @@
     //                 dirPressed() (arrow/WASD/swipe), action() (tap/Space), held(code), hit(code)
     //   api.sfx(name) - 'blip' 'paddle' 'wall' 'brick' 'hard' 'point' 'miss' 'shoot' 'hit'
     //                   'explode' 'power' 'life' 'eat' 'bonus' 'level' 'win' 'die'
+    //   api.tone({ f: 440, f2: 880, d: 0.1, type: 'square', v: 0.4 }) - custom beep
     //   api.text(g, str, x, y, size, color, align) - pixel-font text
     //   api.sprite(['.#.', '###'], color) - cached pixel-art canvas
+    //                 (color may be a palette like { a: '#f00', b: '#fff' } for multi-colour art)
     //   api.shake(amount, seconds), api.gameOver(score), api.isTouch
     //   api.rand(a, b), api.randInt(a, b), api.clamp(v, a, b), api.pick(array)
     create(api) {

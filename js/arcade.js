@@ -23,16 +23,22 @@
   const spriteCache = new Map();
   function sprite(rows, color, px) {
     px = px || 1;
-    const key = rows.join('|') + color + px;
+    const multi = typeof color === 'object';   // {char: color} palette for multi-colour art
+    const key = rows.join('|') + (multi ? JSON.stringify(color) : color) + px;
     let c = spriteCache.get(key);
     if (c) return c;
     c = document.createElement('canvas');
     c.width = rows[0].length * px;
     c.height = rows.length * px;
     const g = c.getContext('2d');
-    g.fillStyle = color;
+    if (!multi) g.fillStyle = color;
     rows.forEach((row, y) => {
-      for (let x = 0; x < row.length; x++) if (row[x] !== '.' && row[x] !== ' ') g.fillRect(x * px, y * px, px, px);
+      for (let x = 0; x < row.length; x++) {
+        const ch = row[x];
+        if (ch === '.' || ch === ' ') continue;
+        if (multi) { if (!color[ch]) continue; g.fillStyle = color[ch]; }
+        g.fillRect(x * px, y * px, px, px);
+      }
     });
     spriteCache.set(key, c);
     return c;
@@ -51,6 +57,7 @@
     return Object.assign({
       W, H, input, isTouch,
       sfx: audio.play,
+      tone: audio.tone,
       text: font.draw,
       textWidth: font.width,
       sprite,

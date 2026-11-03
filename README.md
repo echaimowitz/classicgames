@@ -14,6 +14,9 @@ No build step and no dependencies: just HTML, CSS and JavaScript.
 | **Brickfall** | Brick breaker, 8 levels + power-ups | Drag, tap to launch | Mouse or ← →, Space to launch |
 | **Star Sentinel** | Formation shooter (auto-fire) | Drag to steer | Mouse or ← → |
 | **Neon Serpent** | Snake | Swipe to turn | Arrows / WASD |
+| **Crystal Drift** | Rock-blasting space shooter (auto-aim) | Drag to fly | Mouse or arrows |
+| **Maze Bandit** | Maze chase, 3 vaults, 4 guard personalities | Swipe to turn | Arrows / WASD |
+| **Turbo Lanes** | Night-time lane racer with fuel | Tap left / right side | ← → or click sides |
 
 `P` or `Esc` pauses on PC. The game auto-pauses if you switch apps. High
 scores are saved on the device.
